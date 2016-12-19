@@ -29,10 +29,6 @@ UnminifiedWebpackPlugin.prototype.apply = function(compiler) {
         return plugin instanceof webpack.optimize.UglifyJsPlugin;
     });
 
-    if (!containUgly.length) {
-        return console.log('Ignore generating unminified version, since no UglifyJsPlugin provided');
-    }
-
     compiler.plugin('compilation', function(compilation) {
         compilation.plugin('additional-chunk-assets', function(chunks, cb) {
             var files = [];
